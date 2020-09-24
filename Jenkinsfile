@@ -3,6 +3,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                echo 'Branch name #1' + env.BRANCH_NAME
+                echo 'Branch name #2' + env.GIT_BRANCH
                 echo 'Running build automation'
                 sh './gradlew build --no-daemon'
                 archiveArtifacts artifacts: 'dist/trainSchedule.zip'
