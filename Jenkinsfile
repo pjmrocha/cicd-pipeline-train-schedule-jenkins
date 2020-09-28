@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Build Docker Image') {
       when {
-        branch 'train-deploy-k8-canary'
+        branch 'train-deploy-k8s-canary'
       }
       steps {
         script {
@@ -26,7 +26,7 @@ pipeline {
     }
     stage('Push Docker Image') {
       when {
-        branch 'train-deploy-k8-canary'
+        branch 'train-deploy-k8s-canary'
       }
       steps {
         script {
@@ -39,7 +39,7 @@ pipeline {
     }
     stage('CanaryDeploy') {
       when {
-        branch 'train-deploy-k8-canary'
+        branch 'train-deploy-k8s-canary'
       }
       environment { 
         CANARY_REPLICAS = 1
